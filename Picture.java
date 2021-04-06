@@ -367,7 +367,28 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-
+public void sepiaTone(){
+ //create array of pixels
+  Pixel[][] pixels = this.getPixels2D();
+  //create pixel object
+  Pixel p=null;
+ //traverse through array
+  for(int r=0; r<pixels.length;r++){
+    for(int c=0; c<pixels[0].length;c++){
+    //create current pixel
+      p=pixels[r][c];
+     //set red using newRed = 0.393*R + 0.769*G + 0.189*B
+     p.setRed((int)(p.getRed()*0.393+p.getGreen()*0.769+p.getBlue()*0.189));
+     //set green using newGreen = 0.349*R + 0.686*G + 0.168*B
+     p.setGreen((int)(p.getRed()*0.349+p.getGreen()*0.686+p.getBlue()*0.168));
+     //set blue using newBlue = 0.272*R + 0.534*G + 0.131*B
+     p.setBlue((int)(p.getRed()*0.272+p.getGreen()*0.534+p.getBlue()*0.131));
+   //end nested
+    }
+  //end for loop
+  }
+  //end method 
+}
    
 
 
